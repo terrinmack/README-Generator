@@ -1,7 +1,8 @@
-
+// variables
 const inquirer = require('inquirer');
 const fs = require("fs");
 
+// node index prompts
 inquirer.prompt([
     {
         type: 'input',
@@ -41,8 +42,8 @@ inquirer.prompt([
     {
         type: 'list',
         name: 'license',
-        message: 'What is your project title?',
-        choices: ['MIT', 'ISC', 'None'],
+        message: 'What license did you use for your project?',
+        choices: ['MIT', 'BSD', 'None'],
     },
     {
         type: 'input',
@@ -56,38 +57,38 @@ inquirer.prompt([
     },  
 ])
 
+// calling readme generating function
 .then((data) => {
 
-    fs.writeFile("SampleREADME.md", generateREADME(data))
+    fs.writeFileSync("SampleREADME.md", generateREADME(data))
 });
 
+// readme generator function
 function generateREADME(data) {
-    return `
-
-    # ${data.title}
-    ![License Badge](https://img.shields.io/github/license/${data.github}/${data.repo})
-
-    ## Description
-        ${data.description}
-
-    ## Table of Contents 
-
-    - [Installation](#instalaltion)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [Test](#test)
-    - [Contacts](#contacts)
-
-    ## Installation
-        ${data.installation}
-
-    ## Usage
-        ${data.usage}
-
-    ## Contacts
-
-    - My [Github Profile](https://github.com/${data.github})
-    - Have more questions or feedback? Contact me at [my email](mailto:${data.email})
+return `
     
-    `
+# ${data.title}
+![License](https://img.shields.io/badge/License-${data.license})
+    
+## Description
+${data.description}
+    
+## Table of Contents   
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [Test](#test)
+- [Contacts](#contacts)
+    
+## Installation
+${data.installation}
+    
+## Usage
+${data.usage}
+    
+## Contacts
+- My [Github Profile](https://github.com/${data.github})
+- Have more questions or feedback? Contact me at [my email](mailto:${data.email})
+        
+`
 }
