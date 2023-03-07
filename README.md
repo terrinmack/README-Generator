@@ -22,8 +22,9 @@ Module 9: An application that uses node.js command=line prompts to generate a pr
     * Test
     * Contacts
 * Example of a Sample README file that will be created:
+![screenshot](assets/Sample-README.jpg)
 
-* Demonstration video of the application
+* Demonstration [video of the application](https://watch.screencastify.com/v/LRLCQF2oJnilrugy6ums)
 
 ## Contact
 [Terri Mack](https://github.com/terrinmack?tab=repositories)
