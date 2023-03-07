@@ -1,3 +1,4 @@
+
 // variables
 const inquirer = require('inquirer');
 const fs = require("fs");
@@ -61,14 +62,15 @@ inquirer.prompt([
 .then((data) => {
 
     fs.writeFileSync("SampleREADME.md", generateREADME(data))
+    console.log('Successfully created SampleREADME.md!')
 });
 
 // readme generator function
 function generateREADME(data) {
-return `
-    
+return ` 
+
 # ${data.title}
-![License](https://img.shields.io/badge/License-${data.license})
+![GitHub license](https://img.shields.io/badge/license-${data.license}-green.svg)
     
 ## Description
 ${data.description}
@@ -85,6 +87,12 @@ ${data.installation}
     
 ## Usage
 ${data.usage}
+
+## Credits
+${data.credits}
+
+## Test
+${data.test}
     
 ## Contacts
 - My [Github Profile](https://github.com/${data.github})
